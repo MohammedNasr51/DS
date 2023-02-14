@@ -96,6 +96,7 @@ public:
                 cout << cur->item << " ";
                 cur = cur->next;
             }
+            cout<<endl;
         }
     }
     void deleteatposition(int pos)//deleting data from any position in the list
