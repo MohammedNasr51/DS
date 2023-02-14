@@ -21,7 +21,7 @@ public:
     {
         return length == 0;
     }
-    void insertatfirst(int item)
+    void insertatfirst(int item)//iserting data at the first position in the list
     {
         node *newnode = new node;
         newnode->item = item;
@@ -37,7 +37,7 @@ public:
         }
         length++;
     }
-    void insertatlast(int item)
+    void insertatlast(int item)//iserting data at the last position in the list
     {
         node *newnode = new node;
         newnode->item = item;
@@ -54,7 +54,7 @@ public:
         }
         length++;
     }
-    void insertatposition(int pos, int item)
+    void insertatposition(int pos, int item)//iserting data at any position in the list
     {
         if (pos < 0 || pos > length)
         {
@@ -82,7 +82,7 @@ public:
             length++;
         }
     }
-    void print()
+    void print()//printing data
     {
         if (isembty())
         {
@@ -98,7 +98,7 @@ public:
             }
         }
     }
-    void deleteatposition(int pos)
+    void deleteatposition(int pos)//deleting data from any position in the list
     {
         node *cur, *prv;
         if (pos < 0 || pos > length)
@@ -146,7 +146,7 @@ public:
                 tail = NULL;
         }
     }
-    void reverse()
+    void reverse()//reversing list data
     {
         node *prv, *cur, *next;
         prv = NULL;
@@ -161,7 +161,7 @@ public:
         }
         head = prv;
     }
-    int search(int item)
+    int search(int item)//finding position of an item
     {
         node *cur = head;
         int pos = 0;
@@ -180,16 +180,18 @@ public:
 int main()
 {
     linkedlist l1;
-    l1.insertatfirst(1);
-    l1.insertatlast(2);
-    l1.insertatlast(3);
-    l1.insertatposition(1, 11);
-    l1.insertatposition(0, 100);
-    l1.insertatposition(3, 300);
-    l1.deleteatposition(0);
-    l1.deleteatposition(4);
-    l1.deleteatposition(2);
-    l1.reverse();
-    cout << l1.search(300) << endl;
-    l1.print();
+    l1.insertatfirst(1);//insert 1 at pos 0
+    l1.insertatlast(2);//insert 2 at last pos
+    l1.insertatlast(3);//3 becomes last element
+    l1.insertatposition(1, 11);//inserting 11 at pos 1
+    l1.insertatposition(0, 100);//inserting 100 at pos 0
+    l1.insertatposition(3, 300);//inserting 300 at pos 3
+    l1.print();// 100 1 11 300 2 3
+    cout << l1.search(300) << endl;//the pos of 300 is 3
+    l1.deleteatposition(0);//deleting pos 0 is 100
+    l1.deleteatposition(4);//deleting pos 4 is 3
+    l1.deleteatposition(2);//deleting pos 2 is 300
+    l1.print();// 1 11 2
+    l1.reverse();//reversing data
+    l1.print();// 2 11 1
 }
