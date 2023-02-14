@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 class linkedlist
 {
@@ -9,8 +8,8 @@ class linkedlist
         int item;
         node *next;
     };
-    node *head, *tail;  //pointer to first node and one to the last
-    int length;  //to count nodes
+    node *head, *tail;
+    int length;
 
 public:
     linkedlist()
@@ -22,7 +21,7 @@ public:
     {
         return length == 0;
     }
-    void insertatfirst(int item)  //inserting items at the first position in the list
+    void insertatfirst(int item)
     {
         node *newnode = new node;
         newnode->item = item;
@@ -38,7 +37,7 @@ public:
         }
         length++;
     }
-    void insertatlast(int item)   //inserting items at the lasst position in the list
+    void insertatlast(int item)
     {
         node *newnode = new node;
         newnode->item = item;
@@ -55,7 +54,7 @@ public:
         }
         length++;
     }
-    void insertatposition(int pos, int item)  //inserting items at any position in the list
+    void insertatposition(int pos, int item)
     {
         if (pos < 0 || pos > length)
         {
@@ -83,7 +82,7 @@ public:
             length++;
         }
     }
-    void print()  //print list items
+    void print()
     {
         if (isembty())
         {
@@ -99,7 +98,7 @@ public:
             }
         }
     }
-    void deleteatposition(int pos)  //deleting items at any position in the list
+    void deleteatposition(int pos)
     {
         node *cur, *prv;
         if (pos < 0 || pos > length)
@@ -147,6 +146,36 @@ public:
                 tail = NULL;
         }
     }
+    void reverse()
+    {
+        node *prv, *cur, *next;
+        prv = NULL;
+        cur = head;
+        next = cur->next;
+        while (cur != NULL)
+        {
+            next = cur->next;
+            cur->next = prv;
+            prv = cur;
+            cur = next;
+        }
+        head = prv;
+    }
+    int search(int item)
+    {
+        node *cur = head;
+        int pos = 0;
+        while (cur != NULL)
+        {
+            if (cur->item == item)
+            {
+                return pos;
+            }
+            cur = cur->next;
+            pos = pos + 1;
+        }
+        return -1;
+    }
 };
 int main()
 {
@@ -160,5 +189,7 @@ int main()
     l1.deleteatposition(0);
     l1.deleteatposition(4);
     l1.deleteatposition(2);
+    l1.reverse();
+    cout << l1.search(300) << endl;
     l1.print();
 }
