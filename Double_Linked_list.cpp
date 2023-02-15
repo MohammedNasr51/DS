@@ -145,7 +145,7 @@ public:
             node *cur;
             if (pos <= (length / 2))
             {
-                cur = head;
+                cur = head->next;
                 for (size_t i = 1; i < pos; i++)
                 {
                     cur = cur->next;
@@ -156,7 +156,7 @@ public:
             }
             else
             {
-                cur = tail;
+                cur = tail->prev;
                 for (size_t i = 1; i < length - pos - 1; i++)
                 {
                     cur = cur->prev;
