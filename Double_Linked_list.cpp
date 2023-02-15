@@ -221,7 +221,7 @@ int main()
     d1.removeatend();    // removing 7
     d1.printforward();   // 2 3 4 5 6
     d1.printreverse();   // 6 5 4 3 2
-    d1.removeatpos(4);   // removing 6 at pos 4
-    d1.printforward();   // 2 3 4 5
-    d1.printreverse();   // 5 4 3 2
+    d1.removeatpos(2);   // removing 4 at pos 2
+    d1.printforward();   // 2 3 5 6
+    d1.printreverse();   // 6 5 3 2
 }
