@@ -201,18 +201,31 @@ public:
             }
             cout << endl;
         }
+      }
+    ~DoulyLinkedList()
+    {
+        node*cur;
+        while(head!=NULL)
+        {
+            cur=head;
+            head=head->next;
+            delete cur;
+        }
+        last=NULL;
+        length=0;
     }
+    
 };
 int main()
 {
     DoulyLinkedList d1;
-    d1.insertatfirst(5); // 5
-    d1.insertatfirst(4); // 4 5
-    d1.insertatfirst(3); // 3 4 5
-    d1.insertatfirst(2); // 2 3 4 5
-    d1.insertatfirst(1); // 1 2 3 4 5
-    d1.insertatend(6);   // 1 2 3 4 5 6
-    d1.insertatend(7);   // 1 2 3 4 5 6 7
+    d1.insertatfirst(4); // 4 
+    d1.insertatfirst(3); // 3 4 
+    d1.insertatfirst(2); // 2 3 4 
+    d1.insertatfirst(1); // 1 2 3 4 
+    d1.insertatend(6);   // 1 2 3 4 6
+    d1.insertatend(7);   // 1 2 3 4 6 7
+    d1.insertatpos(4,5); // 1 2 3 4 5 6 7
     d1.printforward();   // 1 2 3 4 5 6 7
     d1.printreverse();   // 7 6 5 4 3 2 1
     d1.removeatfirst();  // removing 1
