@@ -57,7 +57,7 @@ public:
         }
         length++;
     }
-    void isertatpos(int pos, int item) // inserting data at sertain positin
+    void insertatpos(int pos, int item) // inserting data at sertain positin
     {
         if (pos < 0 || pos > length)
         {
@@ -74,6 +74,7 @@ public:
         else
         {
             node *newnode = new node;
+            newnode->item=item;
             node *cur = head;
             for (size_t i = 1; i < pos; i++)
             {
@@ -201,40 +202,39 @@ public:
             }
             cout << endl;
         }
-      }
+    }
     ~DoulyLinkedList()
     {
-        node*cur;
-        while(head!=NULL)
+        node *cur;
+        while (head != NULL)
         {
-            cur=head;
-            head=head->next;
+            cur = head;
+            head = head->next;
             delete cur;
         }
-        last=NULL;
-        length=0;
+        tail = NULL;
+        length = 0;
     }
-    
 };
 int main()
 {
     DoulyLinkedList d1;
-    d1.insertatfirst(4); // 4 
-    d1.insertatfirst(3); // 3 4 
-    d1.insertatfirst(2); // 2 3 4 
-    d1.insertatfirst(1); // 1 2 3 4 
-    d1.insertatend(6);   // 1 2 3 4 6
-    d1.insertatend(7);   // 1 2 3 4 6 7
+    d1.insertatfirst(4);  // 4
+    d1.insertatfirst(3);  // 3 4
+    d1.insertatfirst(2);  // 2 3 4
+    d1.insertatfirst(1);  // 1 2 3 4
+    d1.insertatend(6);    // 1 2 3 4 6
+    d1.insertatend(7);    // 1 2 3 4 6 7
     d1.insertatpos(4,5); // 1 2 3 4 5 6 7
-    d1.printforward();   // 1 2 3 4 5 6 7
-    d1.printreverse();   // 7 6 5 4 3 2 1
-    d1.removeatfirst();  // removing 1
-    d1.printforward();   // 2 3 4 5 6 7
-    d1.printreverse();   // 7 6 5 4 3 2
-    d1.removeatend();    // removing 7
-    d1.printforward();   // 2 3 4 5 6
-    d1.printreverse();   // 6 5 4 3 2
-    d1.removeatpos(2);   // removing 4 at pos 2
-    d1.printforward();   // 2 3 5 6
-    d1.printreverse();   // 6 5 3 2
+    d1.printforward();    // 1 2 3 4 5 6 7
+    d1.printreverse();    // 7 6 5 4 3 2 1
+    d1.removeatfirst();   // removing 1
+    d1.printforward();    // 2 3 4 5 6 7
+    d1.printreverse();    // 7 6 5 4 3 2
+    d1.removeatend();     // removing 7
+    d1.printforward();    // 2 3 4 5 6
+    d1.printreverse();    // 6 5 4 3 2
+    d1.removeatpos(2);    // removing 4 at pos 2
+    d1.printforward();    // 2 3 5 6
+    d1.printreverse();    // 6 5 3 2
 }
