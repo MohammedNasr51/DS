@@ -53,3 +53,7 @@ int main()
     SelectionSortdesc(arr, size);
     print(arr, size);
 }
+// output is :  
+// 20 50 40 90 80 70 -10 100 0 
+// -10 0 20 40 50 70 80 90 100
+// 100 90 80 70 50 40 20 0 -10
